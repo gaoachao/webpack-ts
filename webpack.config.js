@@ -42,6 +42,7 @@ module.exports = {
 										//兼容的目标浏览器版本
 										"targets":{
 												"chrome": "58",
+												//最新的chrome是102(2022.6.21)
 												"ie": "11"
 											},
 										//corejs的版本

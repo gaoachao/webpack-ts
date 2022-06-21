@@ -105,19 +105,15 @@ module.exports = {
 
 #### 修改package.json配置
 
-修改package.json添加如下配置
+修改`package.json`添加如下配置
 
 ```json
 {
-   ...
    "scripts": {
        "test": "echo \"Error: no test specified\" && exit 1",
        "build": "webpack",
-       //编译
        "start": "webpack serve --open --mode production"
-       //webpack-dev-server：webpack的开发服务器(启动)
    },
-   ...
 }
 ```
 
@@ -150,7 +146,7 @@ npm i -D @babel/core @babel/preset-env babel-loader core-js
 - `@babel-loader`：babel在webpack中的加载器
 - `core-js`：core-js用来使老版本的浏览器支持新版ES语法
 
-修改webpack.config.js配置文件
+修改`webpack.config.js`配置文件
 
 ```js
 //引入路径包
@@ -173,42 +169,49 @@ module.exports = {
 	},
 	//webpack打包时使用的模块
 	module:{
-		//指定要加载的规则
-		rules:[
-			{
-				//test指定的是规则生成的文件
-				//以.ts结尾的结尾的文件用ts-loader去处理
-				test:/\.ts$/,
-				//loader的执行顺序是从后往前执行
-				//我们的需求：先把ts的代码转换为js代码，然后在用babel处理js代码
-				use: [
-					{
-						loader: "babel-loader",
-						options:{
-							presets: [
-								[
-									"@babel/preset-env",
-									{
-										"targets":{
-												"chrome": "58",
-												"ie": "11"
-											},
-										"corejs":"3",
-										"useBuiltIns": "usage"
-									}
-								]
-							]
-						}
+	 //指定要加载的规则
+	 rules:[
+	 {
+		//test指定的是规则生成的文件
+		//以.ts结尾的结尾的文件用ts-loader去处理
+		test:/\.ts$/,
+		//loader的执行顺序是从后往前执行
+		//我们的需求：先把ts的代码转换为js代码，然后在用babel处理js代码
+		use: [
+		 {
+		  //指定加载器
+		  loader: "babel-loader",
+		  //设置babel
+		  options:{
+		  //设置预定义的环境
+			presets: [
+			[
+			  //指定环境的插件
+			  "@babel/preset-env",
+			  //配置信息
+			  {
+				//兼容的目标浏览器版本
+				"targets":{
+					"chrome": "58",
+					"ie": "11"
 					},
-					{
-						loader: "ts-loader",
-
-					}
-			],
-				//要排除的文件
-				exclude:/node-modules/
-			}
-		]
+				//corejs的版本
+				"corejs":"3",
+				//使用corejs的方式，“usage”表示按需加载
+				"useBuiltIns": "usage"
+			  }
+			]
+			]
+		  }
+		 },
+		 {
+			loader: "ts-loader",
+		 }
+		],
+		//要排除的文件
+		exclude:/node-modules/
+	  }
+	  ]
 	},
 	//配置Webpack插件
 	plugins:[
