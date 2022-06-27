@@ -14,7 +14,12 @@ module.exports = {
 		//指定打包文件的目录
 		path:path.resolve(__dirname,'dist'),
 		//打包后文件的名字
-		filename:"bundle.js"
+		filename:"bundle.js",
+
+		//告诉webpack不使用箭头函数
+		environment:{
+			arrowFunction:false
+		}
 	},
 	//webpack打包时使用的模块
 	module:{
@@ -60,6 +65,34 @@ module.exports = {
 			],
 				//要排除的文件
 				exclude:/node-modules/
+			},
+
+			//设置less文件的处理
+			{
+				test:/\.less$/,
+				use:[
+					"style-loader",
+					"css-loader",
+					//引入postcss
+					{
+						loader:"postcss-loader",
+						options:{
+							postcssOptions:{
+								plugins:[
+									[
+										//指定环境的插件
+									"postcss-preset-env",
+									//配置信息
+									{
+										browsers:'last 3 versions'
+									}
+									]
+								]
+							}
+						}
+					},
+					"less-loader"
+				]
 			}
 		]
 	},

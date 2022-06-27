@@ -1,4 +1,5 @@
 import {hi} from './m1';
+import './style/index.less'
 
 function sum(a:number,b:number):number{
 	return a + b;

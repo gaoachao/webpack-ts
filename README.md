@@ -165,7 +165,11 @@ module.exports = {
 		//指定打包文件的目录
 		path:path.resolve(__dirname,'dist'),
 		//打包后文件的名字
-		filename:"bundle.js"
+		filename:"bundle.js",
+        //告诉webpack不使用箭头函数
+		environment:{
+			arrowFunction:false
+		}
 	},
 	//webpack打包时使用的模块
 	module:{
@@ -192,9 +196,10 @@ module.exports = {
 			  {
 				//兼容的目标浏览器版本
 				"targets":{
+                    //最新的chrome是102(2022.6.21)
 					"chrome": "58",
 					"ie": "11"
-					},
+				},
 				//corejs的版本
 				"corejs":"3",
 				//使用corejs的方式，“usage”表示按需加载
@@ -202,7 +207,6 @@ module.exports = {
 			  }
 			]
 			]
-		  }
 		 },
 		 {
 			loader: "ts-loader",

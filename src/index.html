@@ -4,9 +4,32 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>webpack模板</title>
+	<title>贪吃蛇</title>
 </head>
 <body>
-	<div></div>
+	<div id="main">
+		<!--设置游戏的舞台-->
+		<div id="stage">
+			<div id="snake">
+				<div></div>
+			</div>
+
+			<div id="food">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		<!--设置计分牌-->
+		<div id="score-panel">
+			<div>
+				SCORE:<span id="score">0</span>
+			</div>
+			<div>
+				leavl:<span id="level">1</span>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
