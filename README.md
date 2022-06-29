@@ -236,3 +236,21 @@ module.exports = {
 ```
 
 如此一来，使用ts编译后的文件将会再次被`babel`处理，使得代码可以在大部分浏览器中直接使用，同时可以在配置选项的targets中指定要兼容的浏览器版本。
+
+## postcss
+
+安装依赖包：
+
+```
+npm i -D postcss postcss-loader postcss-preset-env 
+```
+
+共安装了3个包，分别是：
+
+- `postcss`：postcss的核心工具
+
+- `postcss-preset-env`：postcss的预定义环境
+
+- `postcss-loader`：postcss在webpack中的加载器
+
+  

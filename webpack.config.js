@@ -18,7 +18,8 @@ module.exports = {
 
 		//告诉webpack不使用箭头函数
 		environment:{
-			arrowFunction:false
+			arrowFunction:false,
+			// const:false  //不使用const，来兼容IE浏览器
 		}
 	},
 	//webpack打包时使用的模块
@@ -101,7 +102,7 @@ module.exports = {
 		new CleanWebpackPlugin(),
 		new HTMLWebpackPlugin({
 			// title:'TS测试',
-			//html模板，用了这个模板后，title设置的东西就不能起作用了
+			// html模板，用了这个模板后，title设置的东西就不能起作用了
 			template:"./src/index.html",
 
 		}),
