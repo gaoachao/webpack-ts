@@ -1,5 +1,9 @@
 # webpack-ts
 
+## 贪吃蛇
+
+> https://www.bitter-gourd.com/snake
+
 ## webpack整合
 
 通常情况下，实际开发中我们都需要使用构建工具对代码进行打包；
