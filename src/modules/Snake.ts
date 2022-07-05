@@ -44,7 +44,7 @@ class Snake{
 		
 		// 0 <= X <= 290
 		if(value < 0 || value > 290){
-			throw new Error('蛇撞墙');
+			throw new Error('蛇撞到墙了！');
 		}
 		this.moveBody();
 		this.head.style.left = value + 'px';

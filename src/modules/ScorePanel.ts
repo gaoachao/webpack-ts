@@ -42,7 +42,7 @@ class ScorePanel {
     if (this.level < this.maxLevel) {
       this.level++;
       //是个字符串，需要通过拼串的方法转换过去
-      this.scoreEle.innerHTML = this.level + "";
+      this.levelEle.innerHTML = this.level + "";
     }
   }
 }
